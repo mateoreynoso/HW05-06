@@ -29,9 +29,8 @@ protected:
 	std::string get_fees()
 	{
 		int overdraft, charge;
-
-		// Polymorphism: calls the correct virtual methods from the specific customer type
-		// FIXME: Get the overdraft and check charge information from this accounts customer
+		overdraft = customer->getOverdraft_Penalty;
+		charge = customer->getCheck_Charge;
 
 		std::stringstream ss;
 		ss << "Check Charge: " << charge << " Overdraft Fee: " << overdraft;
@@ -47,7 +46,7 @@ protected:
 		double amt = balance*interest;
 		balance = balance + amt;
 		std::string fees = get_fees();
-		Transaction *tran = NULL;
+		Transaction *tran = new Transaction(get_account(), "Interest added", interest, get_fees());
 
 		// FIXME: Create a Transaction object and assign it to the transaction vector.
 
@@ -97,15 +96,7 @@ public:
 
 	@return string describing generic information about the account
 	*/
-	virtual std::string to_string() {
-		std::stringstream ss; // for composing the string that describes this account
-
-		// FIXME: Add information about the customer who owns this account.
-		
-		ss << "  Balance: " << balance << std::endl;
-		ss << "  Account ID: " << account_number << std::endl;
-		return ss.str();
-	}
+	virtual std::string to_string() = 0;
 
 	/**
 	Deposits amount into account

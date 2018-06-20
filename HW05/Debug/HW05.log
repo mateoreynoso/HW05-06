@@ -1,2 +1,3 @@
 ﻿  Banking_Application.cpp
-  HW05.vcxproj -> D:\Data Structure - 2018\HW05\Debug\HW05.exe
+d:\data structure - 2018\hw05\hw05\account.h(37): error C4700: uninitialized local variable 'overdraft' used
+d:\data structure - 2018\hw05\hw05\account.h(37): error C4700: uninitialized local variable 'charge' used

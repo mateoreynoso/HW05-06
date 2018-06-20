@@ -3,6 +3,8 @@
 #include <vector>
 #include <stdexcept>
 #include "Account.h"
+#include "Checking_Account.h"
+#include "Savings_Account.h"
 #include "Customer.h"
 
 /**
@@ -31,7 +33,11 @@ private:
 	{
 		std::vector<int> user_accounts;
 
-		// FIXME: Find all the accounts belonging to a customer name and add it to the vector of account numbers.
+		for (int i = 0; i < accounts.size(); i++)
+		{
+			if (accounts.at(i)->get_customer()->getName() == name)
+				user_accounts.push_back(accounts.at(i)->get_account());
+		}
 		
 		return user_accounts;
 	}
@@ -43,8 +49,13 @@ private:
 	*/
 	Customer *find_customer(std::string name)
 	{
-		// FIXME: Find and return the Customer object with the parameter name
-		return NULL;
+		for (int i = 0; i < customers.size(); i++)
+		{
+			if (customers.at(i)->getName == name)
+				return customers.at(i);
+		}
+		else
+			return NULL;
 	}
 
 	/** 
@@ -53,13 +64,24 @@ private:
 	@param account_type The account type, i.e. "savings" or "checking"
 	@return the newly created account object
 	*/
-	Account * add_account (Customer *cust, std::string account_type)
+	Account * add_account(Customer *cust, std::string account_type)
 	{
-		Account *acct = NULL;
-
-		// FIXME: Factory method for creating a Account object (could be a Saving_Account or a Checking_Account).
+		if (account_type == "savings")
+		{
 		
+		Account *acct = new Savings_Account(cust, std::stoi(cust->getCustomer_number()));
 		return acct;
+		}
+		else if (account_type == "checkings")
+		{
+			Account *acct = new Checking_Account(cust, std::stoi(cust->getCustomer_number()));
+			return acct;
+		}
+		else
+		{
+			Account *acct = NULL;
+			return acct;
+		}
 	}
 
 public:
@@ -91,15 +113,33 @@ public:
 	@param account_type Account type, i.e. "checking" or "savings"
 	@return the newly created account object
 	*/
-	Account* add_account(std::string name, std::string address, std::string telephone, int age, 
+	Account* add_account(std::string name, std::string address, std::string telephone, int age,
 		std::string cust_type, std::string account_type)
 	{
-		Customer *cust;
-		
-		// FIXME: Depending on the customer type, we want to create an Adult, Senior, or Student object.
-
-		customers.push_back(cust);
-		return add_account(cust, account_type);
+		if (account_type == "adult")
+		{
+			Customer *cust = new Adult();
+			customers.push_back(cust);
+			return add_account(cust, account_type);
+		}
+		else if (account_type == "senior")
+		{
+			Customer *cust = new Senior();
+			customers.push_back(cust);
+			return add_account(cust, account_type);
+		}
+		else if (account_type == "student")
+		{
+			Customer *cust = new Student();
+			customers.push_back(cust);
+			return add_account(cust, account_type);
+		}
+		else
+		{
+			Customer *cust = NULL;
+			return add_account(cust, account_type);
+		}
+			
 	}
 
 	/**
