@@ -33,8 +33,10 @@ public:
 	std::string to_string() {
 		std::stringstream ss; // for composing the string that describes this account
 
-							  // FIXME: Add information about the customer who owns this account.
-
+		ss << "Account type: Checking" << std::endl;
+		ss << "	Name: " << customer->getName() << std::endl;
+		ss << "	Telephone number: " << customer->getTelephone_number() << std::endl;
+		ss << "	Address: " << customer->getAddress() << std::endl;
 		ss << "  Balance: " << balance << std::endl;
 		ss << "  Account ID: " << account_number << std::endl;
 		return ss.str();
