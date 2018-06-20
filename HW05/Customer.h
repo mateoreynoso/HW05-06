@@ -49,10 +49,10 @@ class Senior : public Customer
 {
 private:
 
-	int savings_interest;
-	int check_interest;
-	int check_charge;
-	int overdraft_penalty;
+	int savings_interest = 1;
+	int check_interest = 10;
+	int check_charge = 2;
+	int overdraft_penalty = 20;
 
 public:
 
@@ -68,10 +68,10 @@ class Adult : public Customer
 {
 private:
 
-	int savings_interest;
-	int check_interest;
-	int check_charge;
-	int overdraft_penalty;
+	int savings_interest = 2;
+	int check_interest = 20;
+	int check_charge = 5;
+	int overdraft_penalty = 30;
 
 public:
 
@@ -87,10 +87,10 @@ class Student : public Customer
 {
 private:
 
-	int savings_interest;
-	int check_interest;
-	int check_charge;
-	int overdraft_penalty;
+	int savings_interest = 1;
+	int check_interest = 12;
+	int check_charge = 5;
+	int overdraft_penalty = 25;
 
 public:
 

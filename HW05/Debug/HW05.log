@@ -1,3 +1,4 @@
 ﻿  Banking_Application.cpp
-d:\data structure - 2018\hw05\hw05\account.h(37): error C4700: uninitialized local variable 'overdraft' used
-d:\data structure - 2018\hw05\hw05\account.h(37): error C4700: uninitialized local variable 'charge' used
+d:\data structure - 2018\hw05\hw05\bank.h(36): warning C4018: '<': signed/unsigned mismatch
+d:\data structure - 2018\hw05\hw05\bank.h(52): warning C4018: '<': signed/unsigned mismatch
+  HW05.vcxproj -> D:\Data Structure - 2018\HW05\Debug\HW05.exe

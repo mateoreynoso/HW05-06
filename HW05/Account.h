@@ -29,8 +29,8 @@ protected:
 	std::string get_fees()
 	{
 		int overdraft, charge;
-		overdraft = customer->getOverdraft_Penalty;
-		charge = customer->getCheck_Charge;
+		overdraft = customer->getOverdraft_Penalty();
+		charge = customer->getCheck_Charge();
 
 		std::stringstream ss;
 		ss << "Check Charge: " << charge << " Overdraft Fee: " << overdraft;

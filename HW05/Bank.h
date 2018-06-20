@@ -51,11 +51,11 @@ private:
 	{
 		for (int i = 0; i < customers.size(); i++)
 		{
-			if (customers.at(i)->getName == name)
+			if (customers.at(i)->getName() == name)
 				return customers.at(i);
 		}
-		else
-			return NULL;
+		
+		return NULL;
 	}
 
 	/** 
@@ -150,8 +150,9 @@ public:
 	void make_deposit(int acct_number, double amt) 
 	{
 		Account *acct = get_account(acct_number);
-		if (acct) {
-			// FIXME: Deposit the amt in the account
+		if (acct) 
+		{
+			acct->deposit(amt);
 		}
 	}
 
@@ -163,8 +164,9 @@ public:
 	void make_withdrawal(int acct_number, double amt) 
 	{
 		Account *acct = get_account(acct_number);
-		if (acct) {
-			// FIXME: Withdraw the amt from the account
+		if (acct) 
+		{
+			acct->withdraw(amt);
 		}
 	}
 
