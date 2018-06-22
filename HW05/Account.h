@@ -42,14 +42,12 @@ protected:
 	Add interest based on a specified interest rate to account
 	@param interest	The interest rate
 	*/
-	void add_interest(double interest) {
+	void add_interestP(double interest)
+	{
 		double amt = balance*interest;
 		balance = balance + amt;
 		std::string fees = get_fees();
 		Transaction *tran = new Transaction(get_account(), "Interest added", interest, get_fees());
-
-		// FIXME: Create a Transaction object and assign it to the transaction vector.
-
 		transactions.push_back(tran);
 	}
 

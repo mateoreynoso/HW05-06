@@ -19,7 +19,7 @@ public:
 
 	void withdraw(double amt)
 	{
-		balance -= amt;
+		balance -= amt + get_customer()->getCheck_Charge();
 		std::string fees = get_fees();
 		Transaction *tran = new Transaction(get_account(), "Withdraw", amt, get_fees());
 		transactions.push_back(tran);
@@ -27,7 +27,8 @@ public:
 
 	void add_interest()
 	{
-
+		double tempInt = get_customer()->getCheck_Interest();
+		add_interestP(tempInt);
 	}
 
 	std::string to_string() {
